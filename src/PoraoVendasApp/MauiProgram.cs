@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
-
+using CommunityToolkit.Mvvm;
+using CommunityToolkit.Maui;
 namespace PoraoVendasApp
 {
     public static class MauiProgram
@@ -10,6 +11,7 @@ namespace PoraoVendasApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -32,8 +34,8 @@ namespace PoraoVendasApp
 						});
 					});
 #endif
-                }); ;
-
+                });
+            
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

@@ -3,6 +3,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
+using CommunityToolkit.Maui;
 using CommunityToolkit.Mvvm.Messaging;
 using PoraoVendasApp.Messages;
 
@@ -21,7 +22,7 @@ public class PrintActivity : Activity
     {
         base.OnCreate(savedInstanceState);
 
-        WeakReferenceMessenger.Default.Register<PrintMessage>(this, (r, m) =>
+        StrongReferenceMessenger.Default.Register<PrintMessage>(this, (r, m) =>
         {
             Android.Net.Uri.Builder uriBuilder = new Android.Net.Uri.Builder();
             uriBuilder.Authority("print");
@@ -45,12 +46,12 @@ public class PrintActivity : Activity
         {
             if (Intent!.Data != null)
             {
-                WeakReferenceMessenger.Default.Send(new ReturnMessage(Intent!.DataString!));
+                StrongReferenceMessenger.Default.Send(new ReturnMessage(Intent!.DataString!));
             }
         }
         catch (Exception e)
         {
-            WeakReferenceMessenger.Default.Send(new ReturnMessage(e.Message));
+            StrongReferenceMessenger.Default.Send(new ReturnMessage(e.Message));
         }
 
       

@@ -20,8 +20,8 @@ namespace PoraoVendasApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
-            WeakReferenceMessenger.Default.Register<PayMessage>(this, (r, m) =>
+
+            StrongReferenceMessenger.Default.Register<PayMessage>(this, (r, m) =>
             {
                 OnNewIntent(Intent);
             });
@@ -56,12 +56,12 @@ namespace PoraoVendasApp
             {
                 if (Intent!.Data != null)
                 {
-                    WeakReferenceMessenger.Default.Send(new ReturnMessage(Intent!.DataString!)) ;
+                    StrongReferenceMessenger.Default.Send(new ReturnMessage(Intent!.DataString!)) ;
                 }
             }
             catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ReturnMessage(e.Message));
+                StrongReferenceMessenger.Default.Send(new ReturnMessage(e.Message));
             }
 
             Intent i = new Intent(Intent.ActionView);

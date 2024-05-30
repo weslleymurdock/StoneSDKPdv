@@ -9,7 +9,7 @@ namespace PoraoVendasApp
         public MainPage()
         {
             InitializeComponent();
-            WeakReferenceMessenger.Default.Register<ReturnMessage>(this, (r, m) =>
+            StrongReferenceMessenger.Default.Register<ReturnMessage>(this, (r, m) =>
             {
                 OnMessageReceived(m.Value);
             });
@@ -22,7 +22,7 @@ namespace PoraoVendasApp
 
         private void OnPayBtn(object sender, EventArgs e)
         {
-            WeakReferenceMessenger.Default.Send("pay");
+            StrongReferenceMessenger.Default.Send(new PayMessage());
 
             SemanticScreenReader.Announce(PayBtn.Text);
         }
@@ -30,14 +30,14 @@ namespace PoraoVendasApp
         private void OnCancelBtn(object sender, EventArgs e)
         {
 
-            WeakReferenceMessenger.Default.Send("cancel");
+            StrongReferenceMessenger.Default.Send(new CancelMessage("cancel"));
 
             SemanticScreenReader.Announce(CancelBtn.Text);
         }
 
         private void OnPrintBtn(object sender, EventArgs e)
         {
-            WeakReferenceMessenger.Default.Send("print");
+            StrongReferenceMessenger.Default.Send(new PrintMessage("print"));
 
             SemanticScreenReader.Announce(PrintBtn.Text);
         }

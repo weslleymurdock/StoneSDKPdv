@@ -19,7 +19,7 @@ public class CancelActivity : Activity
     protected override void OnCreate(Bundle? savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
-        WeakReferenceMessenger.Default.Register<CancelMessage>(this, (r, m) =>
+        StrongReferenceMessenger.Default.Register<CancelMessage>(this, (r, m) =>
         {
             Android.Net.Uri.Builder uriBuilder = new Android.Net.Uri.Builder();
             uriBuilder.Authority("cancel");
@@ -44,12 +44,12 @@ public class CancelActivity : Activity
         {
             if (Intent!.Data != null)
             {
-                WeakReferenceMessenger.Default.Send(new ReturnMessage(Intent!.DataString!));
+                StrongReferenceMessenger.Default.Send(new ReturnMessage(Intent!.DataString!));
             }
         }
         catch (Exception e)
         {
-            WeakReferenceMessenger.Default.Send(new ReturnMessage(e.Message));
+            StrongReferenceMessenger.Default.Send(new ReturnMessage(e.Message));
         }
 
 
