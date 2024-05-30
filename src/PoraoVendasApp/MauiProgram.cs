@@ -40,14 +40,15 @@ namespace PoraoVendasApp
     		builder.Logging.AddDebug();
 #endif
 
-            static void HandleAppLink(string url)
-            {
-                if (Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out var uri))
-                {
-                    App.Current?.SendOnAppLinkRequestReceived(uri);
-                }
-            }
+            
             return builder.Build();
+        }
+        static void HandleAppLink(string url)
+        {
+            if (Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out var uri))
+            {
+                App.Current?.SendOnAppLinkRequestReceived(uri);
+            }
         }
     }
 }
