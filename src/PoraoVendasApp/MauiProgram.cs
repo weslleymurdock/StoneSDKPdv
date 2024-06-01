@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Microsoft.Maui.LifecycleEvents;
-using CommunityToolkit.Mvvm;
-using CommunityToolkit.Maui;
+using Microsoft.Maui.LifecycleEvents; 
 namespace PoraoVendasApp
 {
     public static class MauiProgram

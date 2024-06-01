@@ -9,7 +9,7 @@ using PoraoVendasApp.Messages;
 
 namespace PoraoVendasApp;
 
-[Activity(Label = "PrintActivity", Exported = true)]
+[Activity(Label = "PrintActivity", Exported = true, LaunchMode = LaunchMode.SingleTop)]
 [IntentFilter(new[] { Android.Content.Intent.ActionView },
               Categories = new[] { Android.Content.Intent.CategoryBrowsable, Android.Content.Intent.CategoryDefault },
               DataScheme = "poraovendasapp",

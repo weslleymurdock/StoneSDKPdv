@@ -7,7 +7,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using PoraoVendasApp.Messages;
 
 namespace PoraoVendasApp;
-[Activity(Label = "CancelActivity", Exported = true)]
+[Activity(Label = "CancelActivity", Exported = true, LaunchMode = LaunchMode.SingleTop)]
 [IntentFilter(new[] { Android.Content.Intent.ActionView },
               Categories = new[] { Android.Content.Intent.CategoryBrowsable, Android.Content.Intent.CategoryDefault },
               DataScheme = "poraovendasapp",
