@@ -10,7 +10,7 @@
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
         <data
-          android:host="pay"
+          android:host="pay-response"
           android:scheme="poraovendasapp" />
       </intent-filter>
     </activity>

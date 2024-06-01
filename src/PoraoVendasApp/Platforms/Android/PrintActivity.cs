@@ -1,9 +1,7 @@
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
-using Android.OS;
-using Android.Widget;
-using CommunityToolkit.Maui;
+using Android.OS; 
 using CommunityToolkit.Mvvm.Messaging;
 using PoraoVendasApp.Messages;
 
@@ -18,6 +16,7 @@ namespace PoraoVendasApp;
         )]
 public class PrintActivity : Activity
 {
+    
     protected override void OnCreate(Bundle? savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
@@ -30,7 +29,7 @@ public class PrintActivity : Activity
 
             uriBuilder.AppendQueryParameter("SHOW_FEEDBACK_SCREEN", "200");
             uriBuilder.AppendQueryParameter("SCHEME_RETURN", "poraovendasapp");
-            uriBuilder.AppendQueryParameter("PRINTABLE_CONTENT", "arquivoJSON");
+            uriBuilder.AppendQueryParameter("PRINTABLE_CONTENT", "{}");
 
             Intent i = new Intent(Intent.ActionView);
             i.AddFlags(ActivityFlags.NewTask);
@@ -39,14 +38,30 @@ public class PrintActivity : Activity
         });
     }
 
-    protected override void OnNewIntent(Intent intent)
+    protected override void OnActivityResult(int requestCode, Result resultCode, Intent? data)
     {
-        base.OnNewIntent(intent); 
+        base.OnActivityResult(requestCode, resultCode, data);
         try
         {
-            if (Intent!.Data != null)
+            if (data != null)
             {
-                StrongReferenceMessenger.Default.Send(new ReturnMessage(Intent!.DataString!));
+                StrongReferenceMessenger.Default.Send(new ReturnMessage(data!.DataString!));
+            }
+        }
+        catch (Exception e)
+        {
+            StrongReferenceMessenger.Default.Send(new ReturnMessage(e.Message));
+        }
+    }
+
+    protected override void OnNewIntent(Intent intent)
+    {
+        base.OnNewIntent(intent);
+        try
+        {
+            if (intent != null)
+            {
+                StrongReferenceMessenger.Default.Send(new ReturnMessage(intent!.DataString!));
             }
         }
         catch (Exception e)
@@ -54,6 +69,5 @@ public class PrintActivity : Activity
             StrongReferenceMessenger.Default.Send(new ReturnMessage(e.Message));
         }
 
-      
     }
 }

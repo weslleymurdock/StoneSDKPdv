@@ -54,4 +54,20 @@ public class CancelActivity : Activity
 
 
     }
+
+    protected override void OnActivityResult(int requestCode, Result resultCode, Intent? data)
+    {
+        base.OnActivityResult(requestCode, resultCode, data);
+        try
+        {
+            if (data != null)
+            {
+                StrongReferenceMessenger.Default.Send(new ReturnMessage(data!.DataString!));
+            }
+        }
+        catch (Exception e)
+        {
+            StrongReferenceMessenger.Default.Send(new ReturnMessage(e.Message));
+        }
+    }
 }
