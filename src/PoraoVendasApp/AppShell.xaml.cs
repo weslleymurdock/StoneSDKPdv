@@ -1,4 +1,4 @@
-﻿namespace PoraoVendasApp
+﻿namespace StoneSdkApp
 {
     public partial class AppShell : Shell
     {

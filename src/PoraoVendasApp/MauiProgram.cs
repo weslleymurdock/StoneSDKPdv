@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents; 
-namespace PoraoVendasApp
+namespace StoneSdkApp
 {
     public static class MauiProgram
     {

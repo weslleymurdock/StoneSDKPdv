@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PoraoVendasApp.Messages
+namespace StoneSdkApp.Messages
 {
     internal class PayMessage : ValueChangedMessage<string>
     {

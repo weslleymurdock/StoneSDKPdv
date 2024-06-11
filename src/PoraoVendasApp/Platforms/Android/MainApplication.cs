@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace PoraoVendasApp
+namespace StoneSdkApp
 {
     [Application]
     public class MainApplication : MauiApplication

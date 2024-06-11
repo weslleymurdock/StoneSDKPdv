@@ -4,9 +4,9 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
 using CommunityToolkit.Mvvm.Messaging;
-using PoraoVendasApp.Messages;
+using StoneSdkApp.Messages;
 
-namespace PoraoVendasApp;
+namespace StoneSdkApp;
 [Activity(Label = "CancelActivity", Exported = true, LaunchMode = LaunchMode.SingleTop)]
 [IntentFilter(new[] { Android.Content.Intent.ActionView },
               Categories = new[] { Android.Content.Intent.CategoryBrowsable, Android.Content.Intent.CategoryDefault },

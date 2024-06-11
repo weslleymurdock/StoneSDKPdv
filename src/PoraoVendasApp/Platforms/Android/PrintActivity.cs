@@ -3,9 +3,9 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS; 
 using CommunityToolkit.Mvvm.Messaging;
-using PoraoVendasApp.Messages;
+using StoneSdkApp.Messages;
 
-namespace PoraoVendasApp;
+namespace StoneSdkApp;
 
 [Activity(Label = "PrintActivity", Exported = true, LaunchMode = LaunchMode.SingleTop)]
 [IntentFilter(new[] { Android.Content.Intent.ActionView },

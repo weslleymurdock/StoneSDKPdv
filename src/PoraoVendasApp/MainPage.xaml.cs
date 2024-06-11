@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
-using PoraoVendasApp.Messages;
+using StoneSdkApp.Messages;
 
-namespace PoraoVendasApp
+namespace StoneSdkApp
 {
     public partial class MainPage : ContentPage
     {
